@@ -44,75 +44,75 @@ export default function Header() {
   </span>
 
   {/* Media Part */}
-  <span className="media-text animate-media-glow">Media</span>
+  <span className="media-text">Media</span>
 </h1>
 
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8 text-lg font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="nav-link hover:text-yellow-400 transition-all"
-            >
-              {link.name}
-            </Link>
-          ))}
+  {navLinks.map((link) => (
+    <Link
+      key={link.name}
+      href={link.href}
+      className="nav-link hover:text-yellow-400 transition-all"
+    >
+      {link.name}
+    </Link>
+  ))}
 
-          {isLoggedIn ? (
-            <div className="flex items-center gap-3 ml-4">
-              <span className="text-yellow-300 font-semibold">Hi, Alex</span>
-              <button className="px-4 py-1 rounded-md bg-yellow-500 hover:bg-yellow-400 text-black font-semibold transition-all">
-                Logout
-              </button>
-            </div>
-          ) : (
-            <button className="px-4 py-1 rounded-md bg-yellow-400 hover:bg-yellow-300 text-black font-semibold transition-all">
-              Login
-            </button>
-          )}
-        </nav>
+  {isLoggedIn ? (
+    <div className="flex items-center gap-3 ml-4">
+      <span className="text-yellow-300 font-semibold">Hi, Alex</span>
+      <button className="px-4 py-1 rounded-md bg-yellow-500 hover:bg-yellow-400 text-black font-semibold transition-all">
+        Logout
+      </button>
+    </div>
+  ) : (
+    <button className="px-4 py-1 rounded-md bg-yellow-400 hover:bg-yellow-300 text-black font-semibold transition-all">
+      Login
+    </button>
+  )}
+</nav>
 
-        {/* Mobile Hamburger */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-yellow-400 hover:text-yellow-300"
-          >
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-      </div>
+{/* Mobile Hamburger */}
+<div className="md:hidden">
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-yellow-400 hover:text-yellow-300"
+  >
+    {menuOpen ? <X size={28} /> : <Menu size={28} />}
+  </button>
+</div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden mobile-menu flex flex-col items-center gap-4 py-6 bg-black/90 border-t border-yellow-400/30 animate-fadeIn">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="block text-yellow-300 hover:text-yellow-400 text-xl"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.name}
-            </Link>
-          ))}
-          {isLoggedIn ? (
-            <>
-              <span className="text-yellow-300 font-semibold">Hi, Alex</span>
-              <button className="px-5 py-2 rounded-md bg-yellow-500 hover:bg-yellow-400 text-black font-semibold transition-all">
-                Logout
-              </button>
-            </>
-          ) : (
-            <button className="px-5 py-2 rounded-md bg-yellow-400 hover:bg-yellow-300 text-black font-semibold transition-all">
-              Login
-            </button>
-          )}
-        </div>
-      )}
+{/* Mobile Menu */}
+{menuOpen && (
+  <div className="md:hidden mobile-menu flex flex-col items-center gap-4 py-6 bg-black/90 border-t border-yellow-400/30 animate-fadeIn">
+    {navLinks.map((link) => (
+      <Link
+        key={link.name}
+        href={link.href}
+        className="block text-yellow-300 hover:text-yellow-400 text-xl"
+        onClick={() => setMenuOpen(false)}
+      >
+        {link.name}
+      </Link>
+    ))}
+    {isLoggedIn ? (
+      <>
+        <span className="text-yellow-300 font-semibold">Hi, Alex</span>
+        <button className="px-5 py-2 rounded-md bg-yellow-500 hover:bg-yellow-400 text-black font-semibold transition-all">
+          Logout
+        </button>
+      </>
+    ) : (
+      <button className="px-5 py-2 rounded-md bg-yellow-400 hover:bg-yellow-300 text-black font-semibold transition-all">
+        Login
+      </button>
+    )}
+  </div>
+)}
+    </div>
     </header>
   );
 }
