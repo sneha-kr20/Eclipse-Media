@@ -1,47 +1,21 @@
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import PortfolioCard from '../components/PortfolioCard';
+import React from "react";
 
-
-const portfolioData = [
-  {
-    title: 'Corporate Event',
-    description: 'Organized a seamless corporate launch event.',
-    image: '/images/event1.jpg',
-  },
-  {
-    title: 'Wedding Celebration',
-    description: 'Elegant wedding setup with photography & videography.',
-    image: '/images/event2.jpg',
-  },
-  {
-    title: 'Birthday Party',
-    description: 'Fun and colorful birthday event management.',
-    image: '/images/event3.jpg',
-  },
-];
-
-const HomePage: React.FC = () => {
+export default function HomePage() {
   return (
-    <>
-      <Navbar />
-      <Hero />
+    <section className="text-center mt-20">
+      <h2 className="text-4xl font-bold brand-text animate-text-glow">
+        Welcome to Eclipse Media
+      </h2>
+      <p className="mt-4 text-gray-300 max-w-2xl mx-auto leading-relaxed animate-fadeUp">
+        We design unforgettable events, capture stunning visuals, and bring stories to life.  
+        Explore our world of creativity and impact.
+      </p>
 
-      <section className="py-16 px-8 bg-gray-900 text-white">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Work</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {portfolioData.map((item, index) => (
-            <PortfolioCard
-              key={index}
-              title={item.title}
-              description={item.description}
-              image={item.image}
-            />
-          ))}
-        </div>
-      </section>
-    </>
+      <div className="mt-10 flex justify-center">
+        <button className="btn-primary animate-pulseSoft">
+          Get Started
+        </button>
+      </div>
+    </section>
   );
-};
-
-export default HomePage;
+}

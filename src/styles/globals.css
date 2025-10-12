@@ -1,10 +1,211 @@
-/* src/styles/globals.css */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Optional custom styles */
-body {
+/* Base Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
   font-family: 'Inter', sans-serif;
+  color: #fff;
+  background: #060612;
+  overflow-x: hidden;
+}
+
+/* ======================================= */
+/* ✨ Eclipse Animated Background */
+/* ======================================= */
+
+.eclipse-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #0b0b18 40%, #000000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+/* Glowing Sun */
+.eclipse-bg::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffcc33, #ff8800 70%, transparent 100%);
+  box-shadow: 0 0 80px 40px rgba(255, 170, 0, 0.3);
+  animation: solarPulse 8s ease-in-out infinite alternate;
+  filter: blur(1px);
+}
+
+/* Moving Moon (Eclipse effect) */
+.eclipse-bg::after {
+  content: '';
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: #000;
+  animation: eclipseMotion 15s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes eclipseMotion {
+  0% { transform: translateX(-700px); opacity: 0.7; }
+  40% { transform: translateX(0px); opacity: 1; }
+  60% { transform: translateX(0px); opacity: 1; }
+  100% { transform: translateX(700px); opacity: 0.7; }
+}
+
+@keyframes solarPulse {
+  0% { transform: scale(1); filter: brightness(1); }
+  100% { transform: scale(1.1); filter: brightness(1.4); }
+}
+
+/* ======================================= */
+/* ✨ Brand Logo + Text Animations */
+/* ======================================= */
+
+.logo-glow {
+  filter: drop-shadow(0 0 20px rgba(255, 204, 102, 0.7))
+          drop-shadow(0 0 35px rgba(255, 128, 0, 0.5));
+  transition: transform 0.5s ease;
+}
+.logo-glow:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+/* ---------- Eclipse Text Animated Per Character ---------- */
+.eclipse-text {
+  font-weight: 900;
+  font-size: 2rem; /* adjust as needed */
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,1) 0%,
+    rgba(100, 100, 100, 0.401) 30%,
+    rgba(0,0,0,0.6) 50%,
+    rgba(100, 100, 100, 0.437) 70%,
+    rgba(255,255,255,1) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: eclipseChars 12s linear infinite;
+}
+
+@keyframes eclipseChars {
+  0% {
+    background-position: -100% 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* ---------- Media Text Animation ---------- */
+.media-text {
+  background: linear-gradient(90deg, #fde68a, #f59e0b, #facc15, #fde68a);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: mediaShine 4s linear infinite;
+}
+
+@keyframes mediaShine {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+
+.brand-text {
+  font-size: 2.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 50%, #f7765b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textFlow 6s linear infinite;
+  background-size: 300% 100%;
+}
+@keyframes textFlow {
+  0% { background-position: 0% 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0% 0; }
+}
+
+/* ======================================= */
+/* ✨ Navigation Styles */
+/* ======================================= */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4cm;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+  background: rgba(10, 10, 25, 0.5);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #e6e6e6;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.nav-link:hover {
+  color: #ffcc33;
+  transform: translateY(-2px);
+}
+
+/* Hamburger (mobile only) */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.menu-btn span {
+  background: #fff;
+  height: 3px;
+  width: 25px;
+  border-radius: 5px;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 4cm;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 25, 0.9);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    z-index: 20;
+  }
 }

@@ -1,20 +1,19 @@
 // src/app/layout.tsx
-import '../styles/globals.css';
-import React from 'react';
+import "../styles/globals.css";
+import Header from "@/components/Header";
 
 export const metadata = {
-  title: 'Eclipse Media',
-  description: 'Turning Moments into Memories',
+  title: "Eclipse Media",
+  description: "Creative Event & Media Management",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-gray-900 text-white">{children}</body>
+      <body className="relative min-h-screen bg-black text-white">
+        <Header />
+        <main className="relative z-10">{children}</main>
+      </body>
     </html>
   );
 }
