@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer>
       <p>
-        © {new Date().getFullYear()} Eclipse Media. Crafted with ❤️ for creativity.  
-        <Link href="/contact" className="ml-1 underline">
-          Contact Us
+        © {new Date().getFullYear()} Eclipse Media.  
+        <Link href="/webteam" className="footer ">
+          Webteam.
         </Link>
       </p>
     </footer>

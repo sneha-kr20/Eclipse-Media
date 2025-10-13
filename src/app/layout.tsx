@@ -1,18 +1,18 @@
-// src/app/layout.tsx
 import "../styles/globals.css";
 import Header from "@/components/Header";
-
-export const metadata = {
-  title: "Eclipse Media",
-  description: "Creative Event & Media Management",
-};
+import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="relative min-h-screen bg-black text-white">
+     <body
+  className="relative bg-no-repeat bg-cover bg-center min-h-screen"
+  style={{ backgroundImage: "url(/images/background.jpg)" }}
+>
+
         <Header />
-        <main className="relative z-10">{children}</main>
+        <main className="relative z-10 p-4">{children}</main>
+        <Footer />
       </body>
     </html>
   );

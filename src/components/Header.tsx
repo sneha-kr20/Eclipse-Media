@@ -20,6 +20,7 @@ export default function Header() {
   ];
 
   return (
+  
     <header className="relative w-full h-[4cm]">
       {/* Eclipse Animated Background */}
       <div className="absolute inset-0 eclipse-bg"></div>
@@ -29,7 +30,7 @@ export default function Header() {
         <div className="flex items-center gap-10"> {/* <-- Increased gap */}
           <div className="relative w-[140px] h-[140px] rounded-full overflow-hidden logo-glow ring-2 ring-yellow-400 shadow-lg">
             <Image
-              src="/images/logo.png"
+              src="/images/plush.png"
               alt="Eclipse Media Logo"
               fill
               className="object-cover"

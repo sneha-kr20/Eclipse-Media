@@ -1,17 +1,35 @@
+/* Import Tailwind base, components, utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base Reset */
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  font-family: 'Inter', sans-serif;
-  color: #fff;
-  background: #060612;
-  overflow-x: hidden;
+body,html{
+  height:100%;
+  width:100%;
 }
+
+@keyframes fall {
+          0% {
+            transform: translateY(-50px) rotate(var(--initial-rotate));
+            opacity: 0;
+          }
+          25% {
+            transform: translateY(25vh) rotate(calc(var(--initial-rotate) + 45deg));
+            opacity: 0.8;
+          }
+          50% {
+            transform: translateY(50vh) rotate(calc(var(--initial-rotate) + 90deg));
+            opacity: 1;
+          }
+          75% {
+            transform: translateY(75vh) rotate(calc(var(--initial-rotate) + 180deg));
+            opacity: 0.7;
+          }
+          100% {
+            transform: translateY(100vh) rotate(calc(var(--initial-rotate) + 360deg));
+            opacity: 0;
+          }
+        }
 
 /* ======================================= */
 /* ✨ Eclipse Animated Background */
@@ -70,8 +88,8 @@ html, body {
 /* ======================================= */
 
 .logo-glow {
-  filter: drop-shadow(0 0 20px rgba(255, 204, 102, 0.7))
-          drop-shadow(0 0 35px rgba(255, 128, 0, 0.5));
+  filter: drop-shadow(0 0 20px rgba(211, 195, 20, 0.918))
+          drop-shadow(0 0 35px rgba(237, 241, 157, 0.884));
   transition: transform 0.5s ease;
 }
 .logo-glow:hover {
@@ -136,7 +154,7 @@ html, body {
   background-size: 300% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: mediaCameraClick 2s ease-in-out infinite;
+  animation: mediaCameraClick 3s ease-in-out infinite;
 }
 
 /* Camera click zoom + brightness flash */
@@ -242,4 +260,9 @@ nav {
     padding: 1rem 0;
     z-index: 20;
   }
+}
+
+.footer{
+  background: #000;
+  -ms-flex-align: center;
 }
